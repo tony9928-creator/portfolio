@@ -47,10 +47,10 @@ export default function Home() {
             <Image
               src="/profile/tomas.jpg"
               alt={`Photo of ${site.name}`}
-              width={80}
-              height={80}
+              width={112}
+              height={112}
               loading="eager"
-              className="mb-6 size-20 rounded-full object-cover ring-2 ring-accent/60 ring-offset-4 ring-offset-bg"
+              className="mb-6 size-28 rounded-full object-cover ring-2 ring-accent/60 ring-offset-4 ring-offset-bg"
             />
             <p className="font-mono text-sm text-accent">Hi, I&apos;m</p>
             <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">{site.name}</h1>
