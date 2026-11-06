@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Terminal } from "@/components/Terminal";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -43,6 +44,14 @@ export default function Home() {
       <main id="top" className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6">
         <section className="grid items-center gap-10 py-16 sm:py-24 md:grid-cols-2">
           <div>
+            <Image
+              src="/profile/tomas.jpg"
+              alt={`Photo of ${site.name}`}
+              width={80}
+              height={80}
+              loading="eager"
+              className="mb-6 size-20 rounded-full object-cover ring-2 ring-accent/60 ring-offset-4 ring-offset-bg"
+            />
             <p className="font-mono text-sm text-accent">Hi, I&apos;m</p>
             <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">{site.name}</h1>
             <p className="mt-2 text-2xl text-muted sm:text-3xl">{site.role}</p>

@@ -85,15 +85,34 @@ html[data-term-seen] .term[data-typing="on"] .cursor {
   animation: blink 1s step-end infinite;
 }
 
-.term[data-typing="on"] .paw {
-  animation: tap 0.28s ease-in-out infinite;
+.cat-head {
+  transform-box: view-box;
+  transform-origin: 40px 46px;
 }
 
-.term[data-typing="on"] .paw-r {
-  animation-delay: 0.14s;
+.cat-ear {
+  transform-box: view-box;
+  transform-origin: 52px 22px;
+  animation: ear-twitch 7s ease-in-out infinite;
 }
 
-html[data-term-seen] .term .paw {
+.term[data-typing="on"] .paw,
+.term:hover .paw {
+  animation: tap 0.24s ease-in-out infinite;
+}
+
+.term[data-typing="on"] .paw-r,
+.term:hover .paw-r {
+  animation-delay: 0.12s;
+}
+
+.term[data-typing="on"] .cat-head,
+.term:hover .cat-head {
+  animation: bob 0.48s ease-in-out infinite;
+}
+
+html[data-term-seen] .term:not(:hover) .paw,
+html[data-term-seen] .term:not(:hover) .cat-head {
   animation: none;
 }
 
@@ -118,7 +137,29 @@ html[data-term-seen] .term .paw {
 
 @keyframes tap {
   50% {
-    transform: translateY(-2.5px);
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg) translateY(-1px);
+  }
+}
+
+@keyframes ear-twitch {
+  0%,
+  90%,
+  96%,
+  100% {
+    transform: rotate(0);
+  }
+  93% {
+    transform: rotate(-14deg);
   }
 }
 
@@ -178,6 +219,8 @@ html[data-term-seen] .term .paw {
     opacity: 1 !important;
   }
   .term .paw,
+  .term .cat-head,
+  .cat-ear,
   .cat-eye,
   .shots .shot-1,
   .shots .shot-2 {

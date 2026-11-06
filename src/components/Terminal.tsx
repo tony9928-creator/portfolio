@@ -85,26 +85,38 @@ export function Terminal() {
 function CodingCat() {
   return (
     <svg
-      viewBox="0 0 64 40"
-      className="pointer-events-none absolute right-8 bottom-[calc(100%-3px)] z-10 w-16"
+      viewBox="0 0 80 52"
+      className="pointer-events-none absolute right-8 bottom-[calc(100%-10px)] z-10 w-20"
       aria-hidden="true"
     >
-      <path d="M15 26 L18 5 L30 16 Z" fill="var(--cat)" />
-      <path d="M49 26 L46 5 L34 16 Z" fill="var(--cat)" />
-      <path d="M19 19 L20 10 L26 16 Z" fill="var(--cat-inner)" />
-      <path d="M45 19 L44 10 L38 16 Z" fill="var(--cat-inner)" />
-      <ellipse cx="32" cy="30" rx="18" ry="15" fill="var(--cat)" />
-      <ellipse className="cat-eye" cx="25" cy="27" rx="2.4" ry="3" fill="var(--accent)" />
-      <ellipse className="cat-eye" cx="39" cy="27" rx="2.4" ry="3" fill="var(--accent)" />
-      <path d="M30.5 32 L33.5 32 L32 33.6 Z" fill="var(--cat-inner)" />
-      <g stroke="var(--cat-inner)" strokeWidth="0.8" strokeLinecap="round">
-        <path d="M22 33 L11 31.5" />
-        <path d="M22 35 L11 36" />
-        <path d="M42 33 L53 31.5" />
-        <path d="M42 35 L53 36" />
+      <g className="cat-head">
+        <path d="M22 24 L25 4 L36 16 Z" fill="var(--cat)" />
+        <path d="M25.5 18 L27 9 L33 15 Z" fill="var(--cat-inner)" />
+        <g className="cat-ear">
+          <path d="M58 24 L55 4 L44 16 Z" fill="var(--cat)" />
+          <path d="M54.5 18 L53 9 L47 15 Z" fill="var(--cat-inner)" />
+        </g>
+        <ellipse cx="40" cy="31" rx="19" ry="16" fill="var(--cat)" />
+        <ellipse className="cat-eye" cx="33" cy="29" rx="2.6" ry="3.2" fill="var(--accent)" />
+        <ellipse className="cat-eye" cx="47" cy="29" rx="2.6" ry="3.2" fill="var(--accent)" />
+        <path d="M38.5 34 L41.5 34 L40 35.8 Z" fill="var(--cat-inner)" />
+        <g stroke="var(--cat-inner)" strokeWidth="0.9" strokeLinecap="round" fill="none">
+          <path d="M40 35.8 Q38.5 37.6 36.8 36.6" />
+          <path d="M40 35.8 Q41.5 37.6 43.2 36.6" />
+          <path d="M29 35 L17 33" />
+          <path d="M29 37 L17 38.5" />
+          <path d="M51 35 L63 33" />
+          <path d="M51 37 L63 38.5" />
+        </g>
       </g>
-      <ellipse className="paw" cx="22" cy="38.5" rx="5" ry="3" fill="var(--cat)" />
-      <ellipse className="paw paw-r" cx="42" cy="38.5" rx="5" ry="3" fill="var(--cat)" />
+      <g className="paw">
+        <ellipse cx="28" cy="46.5" rx="6.5" ry="4.5" fill="var(--cat)" stroke="var(--term-bg)" strokeWidth="1.2" />
+        <path d="M25.5 43.5 V45.5 M28 43 V45 M30.5 43.5 V45.5" stroke="var(--cat-inner)" strokeWidth="0.9" strokeLinecap="round" />
+      </g>
+      <g className="paw paw-r">
+        <ellipse cx="52" cy="46.5" rx="6.5" ry="4.5" fill="var(--cat)" stroke="var(--term-bg)" strokeWidth="1.2" />
+        <path d="M49.5 43.5 V45.5 M52 43 V45 M54.5 43.5 V45.5" stroke="var(--cat-inner)" strokeWidth="0.9" strokeLinecap="round" />
+      </g>
     </svg>
   );
 }
