@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #fafaf9;
+  --fg: #1c1917;
+  --muted: #57534e;
+  --card: #ffffff;
+  --border: #e7e5e4;
+  --accent: #047857;
+  --accent-fg: #ffffff;
+  --term-bg: #0c0a09;
+  --term-fg: #e7e5e4;
+  --term-accent: #34d399;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0a09;
+    --fg: #f5f5f4;
+    --muted: #a8a29e;
+    --card: #1c1917;
+    --border: #292524;
+    --accent: #34d399;
+    --accent-fg: #052e16;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c0a09;
+  --fg: #f5f5f4;
+  --muted: #a8a29e;
+  --card: #1c1917;
+  --border: #292524;
+  --accent: #34d399;
+  --accent-fg: #052e16;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.term[data-typing="on"] .tl {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  max-width: 100%;
+  animation: type var(--d) steps(var(--n)) var(--delay) forwards;
+}
+
+.term[data-typing="on"] .cursor {
+  opacity: 0;
+  animation: show 1ms var(--end) forwards, blink 1s step-end var(--end) infinite;
+}
+
+.term[data-typing="off"] .cursor {
+  animation: blink 1s step-end infinite;
+}
+
+html[data-term-seen] .term[data-typing="on"] .tl {
+  width: auto;
+  animation: none;
+}
+
+html[data-term-seen] .term[data-typing="on"] .cursor {
+  opacity: 1;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes type {
+  to {
+    width: calc(var(--n) * 1ch);
+  }
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .term .tl {
+    width: auto !important;
+    animation: none !important;
+  }
+  .term .cursor {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
