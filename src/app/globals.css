@@ -1,31 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fafaf9;
-  --fg: #1c1917;
-  --muted: #57534e;
-  --card: #ffffff;
-  --border: #e7e5e4;
-  --accent: #047857;
-  --accent-fg: #ffffff;
-  --term-bg: #0c0a09;
-  --term-fg: #e7e5e4;
-  --term-accent: #34d399;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0c0a09;
-    --fg: #f5f5f4;
-    --muted: #a8a29e;
-    --card: #1c1917;
-    --border: #292524;
-    --accent: #34d399;
-    --accent-fg: #052e16;
-  }
-}
-
-:root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #0c0a09;
   --fg: #f5f5f4;
   --muted: #a8a29e;
@@ -33,6 +9,24 @@
   --border: #292524;
   --accent: #34d399;
   --accent-fg: #052e16;
+  --cat: #d6d3d1;
+  --cat-inner: #78716c;
+  --term-bg: #0c0a09;
+  --term-fg: #e7e5e4;
+  --term-accent: #34d399;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #fafaf9;
+  --fg: #1c1917;
+  --muted: #57534e;
+  --card: #ffffff;
+  --border: #e7e5e4;
+  --accent: #047857;
+  --accent-fg: #ffffff;
+  --cat: #44403c;
+  --cat-inner: #a8a29e;
 }
 
 @theme inline {
@@ -91,6 +85,68 @@ html[data-term-seen] .term[data-typing="on"] .cursor {
   animation: blink 1s step-end infinite;
 }
 
+.term[data-typing="on"] .paw {
+  animation: tap 0.28s ease-in-out infinite;
+}
+
+.term[data-typing="on"] .paw-r {
+  animation-delay: 0.14s;
+}
+
+html[data-term-seen] .term .paw {
+  animation: none;
+}
+
+.cat-eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cat-blink 5s infinite;
+}
+
+.shot-2 {
+  opacity: 0;
+}
+
+.shots .shot-1,
+.shots .shot-2 {
+  animation: crossfade 10s infinite;
+}
+
+.shots .shot-2 {
+  animation-delay: -5s;
+}
+
+@keyframes tap {
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+
+@keyframes cat-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  96% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes crossfade {
+  0%,
+  42% {
+    opacity: 1;
+  }
+  50%,
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes type {
   to {
     width: calc(var(--n) * 1ch);
@@ -120,5 +176,11 @@ html[data-term-seen] .term[data-typing="on"] .cursor {
   .term .cursor {
     animation: none !important;
     opacity: 1 !important;
+  }
+  .term .paw,
+  .cat-eye,
+  .shots .shot-1,
+  .shots .shot-2 {
+    animation: none !important;
   }
 }

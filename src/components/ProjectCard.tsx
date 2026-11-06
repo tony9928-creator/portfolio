@@ -4,14 +4,32 @@ import type { Project } from "@/data/site";
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="flex flex-col overflow-hidden rounded-2xl border border-line bg-card">
-      {project.image ? (
-        <Image
-          src={project.image}
-          alt={`${project.title} screenshot`}
-          width={1200}
-          height={675}
-          className="aspect-video w-full object-cover"
-        />
+      {project.images?.length ? (
+        <div className={`relative aspect-video ${project.images.length > 1 ? "shots" : ""}`}>
+          {project.images.slice(0, 2).map((img, i) => (
+            <Image
+              key={img.src}
+              src={img.src}
+              alt={img.alt}
+              width={1008}
+              height={567}
+              sizes="(min-width: 768px) 480px, 100vw"
+              className={`shot-${i + 1} absolute inset-0 size-full object-cover object-top`}
+            />
+          ))}
+        </div>
+      ) : project.routes?.length ? (
+        <div className="flex aspect-video flex-col justify-center gap-2 bg-[var(--term-bg)] px-6 font-mono text-xs sm:text-sm" aria-hidden="true">
+          {project.routes.map((r) => {
+            const [method, path] = r.split(/\s+/);
+            return (
+              <p key={r} className="whitespace-pre text-[var(--term-fg)]">
+                <span className="text-[var(--term-accent)]">{method.padEnd(5)}</span>
+                {path}
+              </p>
+            );
+          })}
+        </div>
       ) : (
         <div
           className="grid aspect-video place-items-center bg-gradient-to-br from-accent/25 via-accent/5 to-transparent"

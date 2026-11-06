@@ -23,7 +23,7 @@ export default function Home() {
       <header className="sticky top-0 z-10 border-b border-line bg-bg/80 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
           <a href="#top" className="font-mono text-sm font-semibold">
-            tomas<span className="text-accent">.dev</span>
+            tony<span className="text-accent">.dev</span>
           </a>
           <nav className="flex items-center gap-6 text-sm text-muted">
             <ul className="hidden gap-6 sm:flex">

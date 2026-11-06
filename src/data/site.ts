@@ -20,7 +20,8 @@ export type Project = {
   stack: string[];
   repo: string;
   demo?: string;
-  image?: string;
+  images?: { src: string; alt: string }[];
+  routes?: string[];
 };
 
 export const projects: Project[] = [
@@ -36,6 +37,10 @@ export const projects: Project[] = [
     ],
     stack: ["Next.js", "React", "TypeScript", "Express", "MongoDB", "Tailwind CSS"],
     repo: "https://github.com/tony9928-creator/Ticketing-app",
+    images: [
+      { src: "/projects/ticketing-home.jpg", alt: "Ticketing App home page with upcoming events" },
+      { src: "/projects/ticketing-event.jpg", alt: "Event detail with map and ticket reservation panel" },
+    ],
   },
   {
     title: "Velocore API",
@@ -49,6 +54,12 @@ export const projects: Project[] = [
     ],
     stack: ["Node.js", "Express", "TypeScript", "MongoDB", "JWT", "Zod"],
     repo: "https://github.com/tony9928-creator/velocore-api",
+    routes: [
+      "POST /api/auth/login",
+      "GET  /api/users/me",
+      "GET  /api/classes",
+      "POST /api/bookings",
+    ],
   },
 ];
 
