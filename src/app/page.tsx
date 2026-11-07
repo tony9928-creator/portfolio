@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ProjectsCarousel } from "@/components/ProjectsCarousel";
 import { Terminal } from "@/components/Terminal";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { projects, site, stack } from "@/data/site";
@@ -78,11 +78,7 @@ export default function Home() {
 
         <section id="projects" className="py-16">
           <SectionTitle>Projects</SectionTitle>
-          <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((p) => (
-              <ProjectCard key={p.title} project={p} />
-            ))}
-          </div>
+          <ProjectsCarousel projects={projects} />
         </section>
 
         <section id="stack" className="py-16">

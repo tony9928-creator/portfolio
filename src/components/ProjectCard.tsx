@@ -3,7 +3,7 @@ import type { Project } from "@/data/site";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl border border-line bg-card">
+    <article className="flex w-full flex-col overflow-hidden rounded-2xl border border-line bg-card">
       {project.images?.length ? (
         <div className={`relative aspect-video ${project.images.length > 1 ? "shots" : ""}`}>
           {project.images.slice(0, 2).map((img, i) => (
@@ -60,20 +60,26 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
         <div className="mt-auto flex gap-3 pt-2 text-sm font-medium">
-          <a
-            href={project.repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg bg-accent px-4 py-2 text-accent-fg transition-opacity hover:opacity-90"
-          >
-            View code
-          </a>
+          {project.repo ? (
+            <a
+              href={project.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-accent px-4 py-2 text-accent-fg transition-opacity hover:opacity-90"
+            >
+              View code
+            </a>
+          ) : null}
           {project.demo ? (
             <a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg border border-line px-4 py-2 transition-colors hover:border-accent"
+              className={
+                project.repo
+                  ? "rounded-lg border border-line px-4 py-2 transition-colors hover:border-accent"
+                  : "rounded-lg bg-accent px-4 py-2 text-accent-fg transition-opacity hover:opacity-90"
+              }
             >
               Live demo
             </a>

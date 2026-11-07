@@ -18,7 +18,7 @@ export type Project = {
   description: string;
   highlights: string[];
   stack: string[];
-  repo: string;
+  repo?: string;
   demo?: string;
   images?: { src: string; alt: string }[];
   routes?: string[];
@@ -40,6 +40,23 @@ export const projects: Project[] = [
     images: [
       { src: "/projects/ticketing-home.jpg", alt: "Ticketing App home page with upcoming events" },
       { src: "/projects/ticketing-event.jpg", alt: "Event detail with map and ticket reservation panel" },
+    ],
+  },
+  {
+    title: "SAGA Catering & Eventos",
+    kind: "Client project · In development",
+    description:
+      "Marketing website for a premium catering and event-production company, with an Art Déco identity and a direct quote flow.",
+    highlights: [
+      "Art Déco design system: custom Tailwind theme, serif/sans type pairing",
+      "Quote request form that sends the lead straight to WhatsApp or email",
+      "Responsive gallery, services section and QR contact card",
+    ],
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    demo: "https://saga-henna.vercel.app",
+    images: [
+      { src: "/projects/saga-home.jpg", alt: "SAGA Catering & Eventos home page with hero and quote button" },
+      { src: "/projects/saga-gallery.jpg", alt: "SAGA gallery section showing event styling and catering photos" },
     ],
   },
   {
